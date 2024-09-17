@@ -14,7 +14,8 @@ class PHPokemon
         return "https://pokeapi.co/api/v2/pokemon/" . $this->name;
     }
 
-    public function getPokeData() {
+    public function getPokeData()
+    {
         $data = curl_init($this->getUrl());
         if (curl_errno($data)){
             return false;
@@ -25,7 +26,8 @@ class PHPokemon
         }
     }
 
-    public function getSprite() {
+    public function getSprite()
+    {
         $data = $this->getPokeData();
         return $data->sprites->front_default;
     }
