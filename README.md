@@ -11,7 +11,7 @@ $bulbasaur = new PHPokemon("bulbasaur");
 ```
 By doing that you'll have now the data from the named pokémon directly from the [PokéAPI](https://pokeapi.co).
 ```
-$bulbasaur ->getAbilities();
+$bulbasaur->getAbilities();
 ```
 This line will return an array with the abilities names and their descriptions.
 Please note, an ability on a pokémon differs from its moves.
