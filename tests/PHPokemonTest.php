@@ -43,4 +43,13 @@ class PHPokemonTest extends TestCase
         $this->assertEquals('Strengthens grass moves to inflict 1.5× damage at 1/3 max HP or less.',
             $this->bulbasaur->getDescriptionByAbilityName('overgrow'));
     }
+
+    public function testGetAbilities(): void
+    {
+        $this->assertEquals(
+            [
+                "static" => "Has a 30% chance of paralyzing attacking Pokémon on contact.",
+                "lightning-rod" => "Redirects single-target electric moves to this Pokémon where possible.  Absorbs Electric moves, raising Special Attack one stage.",
+            ], $this->pikachu->getAbilities());
+    }
 }
