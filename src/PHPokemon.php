@@ -31,4 +31,14 @@ class PHPokemon
         $data = $this->getPokeData();
         return $data->sprites->front_default;
     }
+
+    public function getAbilitiesNames(): array
+    {
+        $abilityArr = $this->getPokeData()->abilities;
+        $abilities = [];
+        foreach ($abilityArr as $ability) {
+            $abilities[] = $ability->ability->name;
+        }
+        return $abilities;
+    }
 }
