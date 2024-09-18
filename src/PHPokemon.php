@@ -41,4 +41,26 @@ class PHPokemon
         }
         return $abilities;
     }
+
+    public function getDescriptionByAbilityName(string $ability): string
+    {
+        $data = curl_init("https://pokeapi.co/api/v2/ability/" . $ability);
+        if (curl_errno($data)){
+            return false;
+        } else {
+            curl_setopt($data, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($data, CURLOPT_SSL_VERIFYPEER, false);
+
+            //gets the array for the effect entries
+            $response = json_decode(curl_exec($data));
+        }
+        $desc = '';
+        // gets the effects array in english
+        foreach ($response->effect_entries as $effect) {
+            if ($effect->language->name == "en") {
+                $desc = $effect->short_effect;
+            }
+        }
+        return $desc;
+    }
 }
