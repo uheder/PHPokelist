@@ -34,4 +34,13 @@ class PHPokemonTest extends TestCase
     {
         $this->assertEquals('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png', $this->pikachu->getSprite());
     }
+
+    public function testGetDescriptionByAbilityName(): void
+    {
+        $this->assertEquals('Has a 30% chance of paralyzing attacking Pokémon on contact.',
+            $this->pikachu->getDescriptionByAbilityName('static'));
+
+        $this->assertEquals('Strengthens grass moves to inflict 1.5× damage at 1/3 max HP or less.',
+            $this->bulbasaur->getDescriptionByAbilityName('overgrow'));
+    }
 }
