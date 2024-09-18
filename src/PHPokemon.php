@@ -63,4 +63,14 @@ class PHPokemon
         }
         return $desc;
     }
+
+    public function getAbilities(): array
+    {
+        $abilityNames = $this->getAbilitiesNames();
+        $abilities = [];
+        foreach ($abilityNames as $ability) {
+            $abilities[$ability] = $this->getDescriptionByAbilityName($ability);
+        }
+        return $abilities;
+    }
 }
